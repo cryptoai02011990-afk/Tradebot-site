@@ -102,13 +102,13 @@ async function submitAffiliate(e){
     wallet:document.getElementById('wallet').value
   };
   try{
-    const res=await fetch('https://formspree.io/f/YOUR_FORM_ID',{
+    const res=await fetch('https://formspree.io/f/mkjgrzdo',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(data)
     });
     if(res.ok){
-      status.textContent='Request received! We\\'ll email your referral link within 24 hours.';
+      status.textContent='Request received! We\'ll email your referral link within 24 hours.';
       status.style.color='#22c55e';
       e.target.reset();
     }else throw new Error('Failed');
