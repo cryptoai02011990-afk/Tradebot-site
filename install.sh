@@ -17,7 +17,7 @@ if [ ! -d "/data/data/com.termux" ]; then
 fi
 
 echo "[1/7] Checking internet..."
-if ! ping -c 1 8.8.8.8 > /dev/null 2>&1; then
+if ! curl -s --max-time 5 "$BOT_URL" > /dev/null 2>&1; then
     echo "ERROR: No internet. Connect and retry."
     exit 1
 fi
