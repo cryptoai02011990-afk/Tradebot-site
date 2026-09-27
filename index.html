@@ -111,5 +111,48 @@ function submitAffiliate(e){
   status.style.color = '#22c55e';
 }
 </script>
+<div id="license-countdown" style="display:none; padding:24px; margin:32px auto; max-width:520px; background:#111827; border-radius:12px; text-align:center; border:1px solid #1f2937;">
+  <h3 style="color:#fbbf24; margin-bottom:12px; font-size:1.2em;">Your License Status</h3>
+  <p style="color:#9ca3af; margin:0; font-size:0.9em;">Order ID: <span id="cd-order" style="color:#e5e7eb;">—</span></p>
+  <p style="color:#e5e7eb; font-size:2.2em; margin:16px 0; font-family:'SF Mono',Menlo,monospace; font-weight:bold;"><span id="cd-timer">—</span></p>
+  <p style="color:#9ca3af; font-size:0.9em; margin:0;">until your license expires</p>
+</div>
+
+<script>
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const orderId = params.get('order');
+  const expiryStr = params.get('exp');
+  if (!orderId || !expiryStr) return;
+
+  document.getElementById('license-countdown').style.display = 'block';
+  document.getElementById('cd-order').textContent = orderId;
+
+  const target = new Date(expiryStr).getTime();
+  if (isNaN(target)) {
+    document.getElementById('cd-timer').textContent = 'Invalid date';
+    return;
+  }
+
+  function tick() {
+    const diff = target - Date.now();
+    const timer = document.getElementById('cd-timer');
+    if (diff <= 0) {
+      timer.textContent = 'EXPIRED';
+      timer.style.color = '#ef4444';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    timer.textContent = d + 'd ' + h + 'h ' + m + 'm ' + s + 's';
+    timer.style.color = d < 7 ? '#ef4444' : d < 30 ? '#fbbf24' : '#22c55e';
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+</script>
+
 </body>
   </html>
