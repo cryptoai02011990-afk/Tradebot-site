@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="0; url=http://193.160.221.163:8001">
+<meta http-equiv="refresh" content="0; url=http://myemabot.duckdns.org">
 <title>MYEMA BOT — Loading</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,25 +24,14 @@
     width: 80px; height: 80px;
     border-radius: 20px;
     background: #fbbf24;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     font-weight: 800;
     color: #0b0f14;
     font-size: 2em;
     box-shadow: 0 8px 32px rgba(251, 191, 36, 0.3);
   }
-  h1 {
-    font-size: 1.6em;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-  .subtitle {
-    color: #9ca3af;
-    font-size: 0.9em;
-    max-width: 400px;
-    line-height: 1.5;
-  }
+  h1 { font-size: 1.6em; font-weight: 700; letter-spacing: 1px; }
+  .subtitle { color: #9ca3af; font-size: 0.9em; max-width: 400px; line-height: 1.5; }
   .spinner {
     width: 40px; height: 40px;
     border: 4px solid rgba(251, 191, 36, 0.15);
@@ -62,12 +51,7 @@
     text-decoration: none;
     margin-top: 8px;
   }
-  .btn:active { transform: scale(0.97); }
-  .small {
-    color: #6b7280;
-    font-size: 0.75em;
-    margin-top: 20px;
-  }
+  .small { color: #6b7280; font-size: 0.75em; margin-top: 20px; }
 </style>
 </head>
 <body>
@@ -76,12 +60,12 @@
   <div class="subtitle">Automated crypto trading on your own server</div>
   <div class="spinner"></div>
   <div class="subtitle" id="status">Opening dashboard...</div>
-  <a class="btn" href="http://193.160.221.163:8001" id="openBtn">Open Dashboard</a>
+  <a class="btn" href="http://myemabot.duckdns.org">Open Dashboard</a>
   <div class="small">If the dashboard doesn't load automatically, tap the button above.</div>
 <script>
   setTimeout(function() {
     document.getElementById('status').textContent = 'Redirecting...';
-    window.location.replace('http://193.160.221.163:8001');
+    window.location.replace('http://myemabot.duckdns.org');
   }, 800);
 </script>
 </body>
